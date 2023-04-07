@@ -36,3 +36,4 @@ https://imgur.com/lt55Yxd
 ![neofetch](https://github.com/analinux/dotfiles/blob/main/neofetch.png?raw=true)
 
 uhm :3 yeah thats it :3 :3 :3 :3 :3 
+credit to atleast linuxmobile on gh, and probably 13 other people... sorry ive had these dots for a while. dont remember who all i stole from teehee 
