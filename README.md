@@ -90,4 +90,4 @@ backup/save configuration from system:
 make save
 ```
 
-completely stolen from ozwaldorf edited for my friend 
+completely stolen from ozwaldorf 

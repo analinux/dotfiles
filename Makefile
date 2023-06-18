@@ -10,7 +10,6 @@ define ASCII
 
 endef
 export ASCII
-
 configs= \
 	.wallpapers \
 	.Xresources \
@@ -30,6 +29,39 @@ configs= \
 
 pkgs= \
 	hyprland-nvidia-git \
+  nvidia-dkms \
+  wl-clipboard \
+  polkit-kde-agent \
+  nvidia-settings \
+  nvidia-utils \
+  nvidia-vaapi-driver-git \
+  nano \
+  xdg-desktop-portal-hyprland-git \
+  wlrobs-hg \
+  gdb \
+  ninja \
+  cmake \
+  meson \
+  libxcb \
+  xcb-proto \
+  xcb-util \
+  xcb-util-keysyms \
+  libxfixes libx11 \
+  libxcomposite \
+  xorg-xinput \
+  libxrender \
+  pixman \
+  wayland-protocols \
+  cairo \
+  pango \
+  seatd \
+  libxkbcommon \
+  xcb-util-wm \
+  xorg-xwayland \
+  libinput \
+  libliftoff \
+  libdisplay-info \
+  cpio \
   waybar-hyprland-git \
   wofi \
   wezterm \
@@ -37,7 +69,7 @@ pkgs= \
   zsh \
   starship \
   helix \
-	neovim \
+  neovim \
   bat \
   exa \
   nodejs \
