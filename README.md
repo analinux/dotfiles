@@ -1,39 +1,93 @@
-# this is for arch linux 
-this is also made for a system with 3 monitors (sometimes 4), keep that in mind that you will need to patch parts of my config to work for you 
-# install yay
+# dotfiles
+
+📷 [screens](#--screens)
+📝 [info](#--info)
+💻 [usage](#--usage) 
+
+---
+
+## ↛ 📷 screens
+
+![image](https://github.com/ozwaldorf/dotfiles/assets/8976745/71a05127-5489-44f0-8314-4229465333f8)
+
+![image](https://github.com/ozwaldorf/dotfiles/assets/8976745/1bc53bf1-5a1b-40b3-8fd1-c77647fe2d38)
+
+![image](https://github.com/ozwaldorf/dotfiles/assets/8976745/795ed968-cb9f-48d3-be6a-0b3b76af8e4c)
+
+![image](https://github.com/ozwaldorf/dotfiles/assets/8976745/3175d137-88a1-4992-9c37-c30f6c6d5a56)
+
+![image](https://github.com/ozwaldorf/dotfiles/assets/8976745/1bb1fbdb-c3ff-43f1-a2d2-09caaeffdf6f)
+
+---
+
+## ↛ 📝 info
+
+### desktop
+
 ```
-pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
+OS: Arch Linux
+Compositor: Hyprland
+Bar: Waybar
+GTK Theme: Catppuccin Mocha Pink (+ transparent mod)
+Icon Theme: Papyrus (Catppuccin folders patch)
+Font: FiraCode Nerd Font
+Notification Daemon: Mako
+Application Launcher: Wofi
 ```
 
+### terminal
 
-# install things
 ```
-yay -S kitty wofi xarchiver linux-headers zsh-syntax-highlighting thunar thunar-archive-plugin gnome-obfuscate zsh hyprland-nvidia-git lib32-nvidia-utils nvidia-dkms nvidia-utils nvidia-vaapi-driver-git waybar-hyprland-git xdg-desktop-portal-hyprland-git slurp grim grimshot swaylock-effects qt5-wayland qt6-wayland wayland-protocols  wl-clipboard wlrbs-hg polkit-kde-agent xdg-user-dirs xdg-utils
-```
-i use librewolf but u can use anything, im not including it cause it takes like an hour to install
-
-ill remember to add more things (i wont)
-
-https://ohmyz.sh/#install
-https://wiki.hyprland.org/Nvidia/ < read for tech tips
-
-# fonts
-i dont really  know what fonts i use. i have these installed along side nerd-fonts-git, but thats like 20 gigs of fonts and takes for ever to download 
-```
-yay -S noto-fonts noto-fonts-emoji otf-font-awesome ttf-liberation ttf-material-design-icons-extended ttf-nerd-fonts-symbols-common ttf-roboto-mono
+Terminal: Wezterm
+Shell: Zsh 5.9
+Fetch: Punfetch + Onefetch
+Prompt: Starship
+Editor: Nvim
+Git Diff: Delta
 ```
 
-# images
+### apps
 
-this is a video below
+```
+Browser: Firefox
+File Manager: Nautilus
+Volume Control: Pavucontrol
+Disk Manager: Gnome Disks
+```
 
-https://imgur.com/lt55Yxd
+---
 
-![bar](https://github.com/analinux/dotfiles/blob/main/bar.png?raw=true)
-![neofetch](https://github.com/analinux/dotfiles/blob/main/neofetch.png?raw=true)
+## ↛ 💻 usage
 
-uhm :3 yeah thats it :3 :3 :3 :3 :3 
-credit to atleast linuxmobile on gh, and probably 13 other people... sorry ive had these dots for a while. dont remember who all i stole from teehee 
+> Note: you will need `make` and `yay` installed
+
+clone and enter the repo:
+
+```sh
+git clone https://github.com/analinux/dotfiles -b dots-2 && cd dotfiles
+```
+
+install packages:
+```sh
+make deps
+```
+
+install dotfiles to system:
+
+```sh
+make install
+```
+
+transparent gtk mod:
+
+```sh 
+make transparent-gtk
+```
+
+backup/save configuration from system:
+
+```sh
+make save
+```
+
+completely stolen from ozwaldorf edited for my friend 
