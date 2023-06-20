@@ -48,7 +48,7 @@ Editor: Nano
 Browser: LibreWolf
 File Manager: Thunar
 Volume Control: Pavu-control & Easy-Effects
-Disk Manager: Gnome Disks I think
+Music Spotify-tui
 ```
 
 ---
