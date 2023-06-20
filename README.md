@@ -86,6 +86,7 @@ backup/save configuration from system:
 make save
 ```
 
+thunar transparency
 ```mv 
 gtk.css /usr/share/themes/Catppuccin-Mocha-Standard-Pink-Dark/gtk-3.0/
 ```
