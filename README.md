@@ -3,21 +3,18 @@
 📷 [screens](#--screens)
 📝 [info](#--info)
 💻 [usage](#--usage) 
-
+[post](#--post)
 ---
 
 ## ↛ 📷 screens
 
-![image](https://github.com/ozwaldorf/dotfiles/assets/8976745/71a05127-5489-44f0-8314-4229465333f8)
+![image]()
 
-![image](https://github.com/ozwaldorf/dotfiles/assets/8976745/1bc53bf1-5a1b-40b3-8fd1-c77647fe2d38)
+![image]()
 
-![image](https://github.com/ozwaldorf/dotfiles/assets/8976745/795ed968-cb9f-48d3-be6a-0b3b76af8e4c)
+![image]()
 
-![image](https://github.com/ozwaldorf/dotfiles/assets/8976745/3175d137-88a1-4992-9c37-c30f6c6d5a56)
-
-![image](https://github.com/ozwaldorf/dotfiles/assets/8976745/1bb1fbdb-c3ff-43f1-a2d2-09caaeffdf6f)
-
+![image]()
 ---
 
 ## ↛ 📝 info
@@ -28,7 +25,7 @@
 OS: Arch Linux
 Compositor: Hyprland
 Bar: Waybar
-GTK Theme: Catppuccin Mocha Pink (+ transparent mod)
+GTK Theme: Catppuccin Mocha Pink (+ transparent mod (that i fixed))
 Icon Theme: Papyrus (Catppuccin folders patch)
 Font: FiraCode Nerd Font
 Notification Daemon: Mako
@@ -39,20 +36,19 @@ Application Launcher: Wofi
 
 ```
 Terminal: Wezterm
-Shell: Zsh 5.9
-Fetch: Punfetch + Onefetch
-Prompt: Starship
-Editor: Nvim
-Git Diff: Delta
+Shell: Zsh 
+Fetch: Neofetch
+Prompt: P10K
+Editor: Nano 
 ```
 
 ### apps
 
 ```
-Browser: Firefox
-File Manager: Nautilus
-Volume Control: Pavucontrol
-Disk Manager: Gnome Disks
+Browser: LibreWolf
+File Manager: Thunar
+Volume Control: Pavu-control & Easy-Effects
+Disk Manager: Gnome Disks I think
 ```
 
 ---
@@ -90,4 +86,10 @@ backup/save configuration from system:
 make save
 ```
 
-completely stolen from ozwaldorf 
+```mv 
+gtk.css /usr/share/themes/Catppuccin-Mocha-Standard-Pink-Dark/gtk-3.0/
+```
+
+## post
+
+stolen and based off ozwaldorf with a few touches from me

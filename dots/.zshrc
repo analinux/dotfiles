@@ -1,270 +1,117 @@
-#if [[ $1 == eval ]]
-#then
-#    "$@"
-#set --
-#fi
-
-
-# Use powerline
-USE_POWERLINE="true"
-
-## Options section
-setopt correct                                                  # Auto correct mistakes
-setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
-setopt nocaseglob                                               # Case insensitive globbing
-setopt rcexpandparam                                            # Array expension with parameters
-setopt nocheckjobs                                              # Don't warn about running processes when exiting
-setopt numericglobsort                                          # Sort filenames numerically when it makes sense
-# setopt nobeep                                                   # No beep
-setopt appendhistory                                            # Immediately append history instead of overwriting
-setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
-setopt autocd                                                   # if only directory path is entered, cd there.
-setopt inc_append_history                                       # save commands are added to the history immediately, otherwise only when shell exits.
-setopt histignorespace                                          # Don't save commands that start with space
-
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
-zstyle ':completion:*' rehash true                              # automatically find new executables in path 
-# Speed up completions
-# zstyle ':completion:*' accept-exact '*(N)'
-# zstyle ':completion:*' use-cache on
-# zstyle ':completion:*' cache-path ~/.zsh/cache
-HISTFILE=~/.zhistory
-HISTSIZE=10000
-SAVEHIST=10000
-WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
-
-## Keybindings section
-bindkey -e
-bindkey '^[[7~' beginning-of-line                               # Home key
-bindkey '^[[H' beginning-of-line                                # Home key
-if [[ "${terminfo[khome]}" != "" ]]; then
-  bindkey "${terminfo[khome]}" beginning-of-line                # [Home] - Go to beginning of line
-fi
-bindkey '^[[8~' end-of-line                                     # End key
-bindkey '^[[F' end-of-line                                     # End key
-if [[ "${terminfo[kend]}" != "" ]]; then
-  bindkey "${terminfo[kend]}" end-of-line                       # [End] - Go to end of line
-fi
-bindkey '^[[2~' overwrite-mode                                  # Insert key
-bindkey '^[[3~' delete-char                                     # Delete key
-bindkey '^[[C'  forward-char                                    # Right key
-bindkey '^[[D'  backward-char                                   # Left key
-bindkey '^[[5~' history-beginning-search-backward               # Page up key
-bindkey '^[[6~' history-beginning-search-forward                # Page down key
-
-# Navigate words with ctrl+arrow keys
-bindkey '^[Oc' forward-word                                     #
-bindkey '^[Od' backward-word                                    #
-bindkey '^[[1;5D' backward-word                                 #
-bindkey '^[[1;5C' forward-word                                  #
-bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
-bindkey '^[[Z' undo                                             # Shift+tab undo last action
-
-# Theming section  
-autoload -U compinit colors zcalc
-compinit -d
-colors
-
-# Color man pages
-export LESS_TERMCAP_mb=$'\E[01;32m'
-export LESS_TERMCAP_md=$'\E[01;32m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;47;34m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;36m'
-export LESS=-R
-
-## Plugins section: Enable fish style features
-# Use syntax highlighting
-# bind UP and DOWN arrow keys to history substring search
-# zmodload zsh/terminfo
-# bindkey "$terminfo[kcuu1]" history-substring-search-up
-# bindkey "$terminfo[kcud1]" history-substring-search-down
-# bindkey '^[[A' history-substring-search-up			
-# bindkey '^[[B' history-substring-search-down
-
-# Offer to install missing package if command is not found
-if [[ -r /usr/share/zsh/functions/command-not-found.zsh ]]; then
-    source /usr/share/zsh/functions/command-not-found.zsh
-    export PKGFILE_PROMPT_INSTALL_MISSING=1
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Set terminal window and tab/icon title
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
 #
-# usage: title short_tab_title [long_window_title]
-#
-# See: http://www.faqs.org/docs/Linux-mini/Xterm-Title.html#ss3.1
-# Fully supports screen and probably most modern xterm and rxvt
-# (In screen, only short_tab_title is used)
-function title {
-  emulate -L zsh
-  setopt prompt_subst
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-  [[ "$EMACS" == *term* ]] && return
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-  # if $2 is unset use $1 as default
-  # if it is set and empty, leave it as is
-  : ${2=$1}
+alias icat="kitty +kitten icat"
+alias n="neofetch"
+alias c="clear"
 
-  case "$TERM" in
-    xterm*|putty*|rxvt*|konsole*|ansi|mlterm*|alacritty|st*)
-      print -Pn "\e]2;${2:q}\a" # set window name
-      print -Pn "\e]1;${1:q}\a" # set tab name
-      ;;
-    screen*|tmux*)
-      print -Pn "\ek${1:q}\e\\" # set screen hardstatus
-      ;;
-    *)
-    # Try to use terminfo to set the title
-    # If the feature is available set title
-    if [[ -n "$terminfo[fsl]" ]] && [[ -n "$terminfo[tsl]" ]]; then
-      echoti tsl
-      print -Pn "$1"
-      echoti fsl
-    fi
-      ;;
-  esac
-}
-
-ZSH_THEME_TERM_TAB_TITLE_IDLE="%15<..<%~%<<" #15 char left truncated PWD
-ZSH_THEME_TERM_TITLE_IDLE="%n@%m:%~"
-
-# Runs before showing the prompt
-function mzc_termsupport_precmd {
-  [[ "${DISABLE_AUTO_TITLE:-}" == true ]] && return
-  title $ZSH_THEME_TERM_TAB_TITLE_IDLE $ZSH_THEME_TERM_TITLE_IDLE
-}
-
-# Runs before executing the command
-function mzc_termsupport_preexec {
-  [[ "${DISABLE_AUTO_TITLE:-}" == true ]] && return
-
-  emulate -L zsh
-
-  # split command into array of arguments
-  local -a cmdargs
-  cmdargs=("${(z)2}")
-  # if running fg, extract the command from the job description
-  if [[ "${cmdargs[1]}" = fg ]]; then
-    # get the job id from the first argument passed to the fg command
-    local job_id jobspec="${cmdargs[2]#%}"
-    # logic based on jobs arguments:
-    # http://zsh.sourceforge.net/Doc/Release/Jobs-_0026-Signals.html#Jobs
-    # https://www.zsh.org/mla/users/2007/msg00704.html
-    case "$jobspec" in
-      <->) # %number argument:
-        # use the same <number> passed as an argument
-        job_id=${jobspec} ;;
-      ""|%|+) # empty, %% or %+ argument:
-        # use the current job, which appears with a + in $jobstates:
-        # suspended:+:5071=suspended (tty output)
-        job_id=${(k)jobstates[(r)*:+:*]} ;;
-      -) # %- argument:
-        # use the previous job, which appears with a - in $jobstates:
-        # suspended:-:6493=suspended (signal)
-        job_id=${(k)jobstates[(r)*:-:*]} ;;
-      [?]*) # %?string argument:
-        # use $jobtexts to match for a job whose command *contains* <string>
-        job_id=${(k)jobtexts[(r)*${(Q)jobspec}*]} ;;
-      *) # %string argument:
-        # use $jobtexts to match for a job whose command *starts with* <string>
-        job_id=${(k)jobtexts[(r)${(Q)jobspec}*]} ;;
-    esac
-
-    # override preexec function arguments with job command
-    if [[ -n "${jobtexts[$job_id]}" ]]; then
-      1="${jobtexts[$job_id]}"
-      2="${jobtexts[$job_id]}"
-    fi
-  fi
-
-  # cmd name only, or if this is sudo or ssh, the next cmd
-  local CMD=${1[(wr)^(*=*|sudo|ssh|mosh|rake|-*)]:gs/%/%%}
-  local LINE="${2:gs/%/%%}"
-
-  title '$CMD' '%100>...>$LINE%<<'
-}
-
-autoload -U add-zsh-hook
-add-zsh-hook precmd mzc_termsupport_precmd
-add-zsh-hook preexec mzc_termsupport_preexec
-
-# Display onefetch for git repo information on first entering projects
-# This will only run once for each git project you cd into for the terminal session
-fetched_git_dirs=()
-onefetch_git_dir() {
-    if [[ -r .git/HEAD && ! " ${fetched_git_dirs[*]} " =~ " $PWD " ]]; then
-        fetched_git_dirs+=("$PWD")
-        if [[ "$TERM" = "WezTerm" ]] && [[ -r $PWD/../onefetch.png ]]; then
-            # if term is wezterm, lets use an image if it's provided in the parent dir
-            onefetch --image $PWD/../onefetch.png
-        else
-            onefetch
-        fi
-    else
-        return 1
-    fi
-}
-add-zsh-hook chpwd onefetch_git_dir
-
-eval "$(dircolors -b)"
-
-# Alias
-ls_args="--git --icons"
-alias ls="exa -lh $ls_args"
-alias la="exa -lah $ls_args"
-alias l="exa -lah $ls_args"
-alias lg="exa -lah $ls_args --git-ignore"
-alias cp="cp -i" # Confirm before overwriting something
-alias df='df -h' # Human-readable sizes
-alias free='free -m' # Show sizes in MB
-alias clip='wl-copy'
-alias curl="curl -s"
-alias commit="git commit"
-alias add="git add"
-alias rebase="git stash && git pull --rebase && git stash apply"
-alias ytop="ytop -spfa"
-
-sshw() {
-  wezterm ssh $@ </dev/null &>/dev/null & disown
-}
-
-alias icat="wezterm imgcat"
-smart_cat() {
-	if [[ $1 =~ \.(png|jpeg|jpg|ico)$ ]]; then
-		icat $@
-	else
-		bat $@ 
-	fi
-}
-alias cat="smart_cat"
-
-# Environment
-source ~/.env
-export BROWSER="brave"
-export SUDO_EDITOR="nvim"
-export EDITOR="nvim"
-export VISUAL="nvim"
-export CARGO_NET_GIT_FETCH_WITH_CLI=true
-export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.config/hypr/scripts:$PATH"
-
-# Plugins 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-## Completions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-zstyle ':completion::complete:*' gain-privileges 1
-
-source ~/.zshrc.wezterm
-
-eval $(thefuck --alias)
-
-# Prompt
-eval $(starship init zsh)
-
-# Launch fetch on terminal startup
-onefetch_git_dir || punfetch -i .config/oz.png --color green --show-logo auto 

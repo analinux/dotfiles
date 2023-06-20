@@ -15,29 +15,23 @@ configs= \
 	.Xresources \
 	.gitconfig \
 	.zshrc \
-	.config/term.png \
-	.config/starship.toml \
-	.config/helix/config.toml \
-	.config/micro/settings.json \
 	.config/mako/config \
 	.config/hypr \
 	.config/waybar \
 	.config/wofi \
 	.config/deadd \
 	.config/wezterm \
-	.config/nvim
+        .config/btop \
+        .config/neofetch \
+        .config/spotify-tui
 
 pkgs= \
 	hyprland-nvidia-git \
-  nvidia-dkms \
   wl-clipboard \
   polkit-kde-agent \
-  nvidia-settings \
-  nvidia-utils \
-  nvidia-vaapi-driver-git \
   nano \
   xdg-desktop-portal-hyprland-git \
-  wlrobs-hg \
+  waybar-hyprland-git \
   gdb \
   ninja \
   cmake \
@@ -62,14 +56,9 @@ pkgs= \
   libliftoff \
   libdisplay-info \
   cpio \
-  waybar-hyprland-git \
   wofi \
   wezterm \
-  git-delta \
   zsh \
-  starship \
-  helix \
-  neovim \
   bat \
   exa \
   nodejs \
@@ -82,6 +71,8 @@ pkgs= \
   ttf-firacode-nerd \
   mako \
   wf-recorder \
+  catppuccin-gtk-theme-mocha \
+  catppuccin-cursors-mocha \
 	swww 
 
 cargo_pkgs= \

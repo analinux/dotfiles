@@ -1,3 +1,4 @@
+
 // clock, weather, systray
 // workspaces
 // temp, net, battery, audio, github
@@ -5,9 +6,9 @@
 {
     "position": "left",
     "layer": "top",
-    "output": "HDMI-A-1",
+    "output": "DP-1",
     "width": 44,
-    "margin": "25 0 25 25",
+    "margin": "25  0 25 25",
     "modules-left": [
     	"clock", 
       "custom/sep",
@@ -21,7 +22,7 @@
     	"backlight",
       "network",
       "bluetooth",
-    	"battery"
+    	 "battery"
     ],
     "custom/sep": {
         "format": "⌇",
@@ -33,7 +34,7 @@
         "on-click": "~/.config/hypr/scripts/wp-select.sh dmenu"
     },
     "image/user": {
-        "path": "/home/oz/.face.icon",
+        "path": "/home/theresnoimage",
         "size": 32,
         "on-click":"wezterm start --class gpto ~/.cargo/bin/gpto -c"
     },

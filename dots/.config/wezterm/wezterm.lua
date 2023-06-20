@@ -34,9 +34,9 @@ local disabled_new_tab = {
 require("bar").setup({})
 
 return {
-  font = wezterm.font 'FiraCode Nerd Font',
+  font = wezterm.font 'JetBrainsMono NF',
   font_size = 10,
-  window_background_opacity = 0.9,
+  window_background_opacity = 0.6,
   text_background_opacity = 1.0,
     window_decorations = "NONE",
   window_padding = {
