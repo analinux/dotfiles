@@ -8,13 +8,13 @@
 
 ## ↛ 📷 screens
 
-![image]()
+![image](https://github.com/analinux/dotfiles/blob/dots-2/screenshots/image.png?raw=true)
 
-![image]()
+![image](https://github.com/analinux/dotfiles/blob/dots-2/screenshots/image2.png?raw=true)
 
-![image]()
+![image](https://github.com/analinux/dotfiles/blob/dots-2/screenshots/image3.png?raw=true)
 
-![image]()
+![image](https://github.com/analinux/dotfiles/blob/dots-2/screenshots/image4.png)
 ---
 
 ## ↛ 📝 info
